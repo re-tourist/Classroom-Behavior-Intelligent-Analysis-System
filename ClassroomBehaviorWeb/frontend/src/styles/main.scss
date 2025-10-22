@@ -1,0 +1,28 @@
+// 全局样式变量
+$primary-color: #2563eb;
+$success-color: #10b981;
+$error-color: #ef4444;
+$info-color: #3b82f6;
+$text-color: #333;
+$text-light-color: #666;
+$border-color: #dcdfe6;
+$bg-color: #f5f7fa;
+
+// 全局样式
+body {
+  font-size: 14px;
+  color: $text-color;
+  background-color: $bg-color;
+}
+
+// 卡片样式统一
+.el-card {
+  border-radius: 8px !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+// 按钮样式统一
+.el-button {
+  border-radius: 6px !important;
+}

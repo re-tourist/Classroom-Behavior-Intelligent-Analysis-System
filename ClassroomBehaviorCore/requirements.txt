@@ -1,0 +1,23 @@
+# Core DL + detection
+torch>=2.0.0
+torchvision>=0.15.0
+ultralytics>=8.1.0
+
+# CV and analytics
+opencv-contrib-python>=4.8.0
+numpy==1.23.5
+pandas>=2.0.0
+pyyaml>=6.0.1
+pillow>=9.5.0
+
+# Training & plotting (YOLOv5)
+matplotlib>=3.7.0
+tqdm>=4.65.0
+seaborn>=0.12.2
+scipy>=1.10.0
+psutil>=5.9.0
+requests>=2.31.0
+thop>=0.1.1-2209072238
+
+# UI
+PySide6>=6.6.0

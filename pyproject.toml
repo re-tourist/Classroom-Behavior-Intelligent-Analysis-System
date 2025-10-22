@@ -1,0 +1,33 @@
+[tool.black]
+line-length = 88
+skip-string-normalization = false
+
+[tool.isort]
+profile = "black"
+line_length = 88
+include_trailing_comma = true
+multi_line_output = 3
+skip_gitignore = true
+
+[tool.ruff]
+line-length = 88
+extend-exclude = [
+  ".git",
+  ".venv",
+  "venv",
+  "node_modules",
+  "ClassroomBehaviorWeb/frontend",
+  "assets",
+  "data",
+  "logs",
+  "__pycache__",
+  "build",
+  "dist",
+]
+select = ["E","F","W","I","B","UP"]
+ignore = ["E501"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false

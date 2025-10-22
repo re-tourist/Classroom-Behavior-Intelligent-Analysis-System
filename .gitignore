@@ -1,0 +1,55 @@
+# ----- Python -----
+__pycache__/
+*.py[cod]
+*.pyo
+*.so
+*.egg-info/
+*.eggs/
+*.coverage
+.coverage*
+.cache/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Virtual envs
+.env
+.env.*
+.venv/
+venv/
+env/
+
+# ----- Django -----
+db.sqlite3
+staticfiles/
+media/
+*.log
+
+# ----- Node/Vite -----
+node_modules/
+.pnpm-store/
+.npm/
+
+# Vite/Build
+.vite/
+dist/
+build/
+
+# ----- IDE/OS -----
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# ----- Project-specific -----
+ClassroomBehaviorWeb/backend/logs/
+ClassroomBehaviorWeb/backend/.env
+ClassroomBehaviorWeb/backend/login.txt
+ClassroomBehaviorWeb/backend/mydata.csv
+ClassroomBehaviorCore/data/
+ClassroomBehaviorCore/output/
+
+# ----- Misc -----
+*.tmp
+*.bak
+*.swp

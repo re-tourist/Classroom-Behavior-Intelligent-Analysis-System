@@ -1,0 +1,5 @@
+# Development tooling for code quality and consistency
+ruff>=0.5
+black>=24.0
+isort>=5.12
+pre-commit>=3.0

@@ -1,0 +1,10 @@
+# SCBehavior Dataset config for YOLOv5 (YOLO format)
+# We analyzed your workspace and will use the YOLO-structured dataset under SCBehavior_YOLO.
+
+path: ./data/SCBehavior_Dataset/SCBehavior_YOLO
+train: images/train
+val: images/val
+test: images/test  # optional
+
+nc: 7
+names: [read, write, lookup, raise_hand, turn_head, stand, discuss]

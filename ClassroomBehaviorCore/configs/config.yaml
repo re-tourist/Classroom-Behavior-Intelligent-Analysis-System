@@ -1,0 +1,38 @@
+inference:
+  weights: yolov8n.pt
+  device: ''
+  imgsz: 640
+  conf: 0.25
+  iou: 0.45
+  max_det: 1000
+  half: false
+  classes: null
+
+inference_v5:
+  weights: yolov5s.pt
+  repo_dir: ../../head_up_rate_detection_project/yolov5
+  device: ''
+  imgsz: 640
+  conf: 0.25
+  iou: 0.45
+  max_det: 1000
+  classes: [0]  # person-only by default
+
+analytics:
+  window_size: 15
+  head_region_ratio: 0.2
+  brightness_threshold: 0.35
+  export_csv: true
+  export_json: true
+
+face:
+  gallery_dir: data/face_gallery
+  model_path: output/face_lbph.xml
+  labels_path: output/face_labels.json
+  unknown_threshold: 60.0
+
+ui:
+  theme: dark
+  default_image: ''
+  default_video: ''
+  allow_drag_drop: true

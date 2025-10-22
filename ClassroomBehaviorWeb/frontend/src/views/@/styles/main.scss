@@ -1,0 +1,182 @@
+// 引入 Sass 内置的 map 模块（关键：使用新的模块化语法）
+@use "sass:map";
+
+// 颜色变量
+$color: (
+  // 功能色
+  error: #f53f3f,       // 错误色
+  success: #00b42a,     // 成功色
+  warning: #ff7d00,     // 警告色
+  info: #1890ff,        // 信息色
+  primary: #165dff,     // 主色调
+  
+  // 中性色
+  black: #1d2129,       // 主要文本
+  gray-1: #4e5969,      // 次要文本
+  gray-2: #86909c,      // 辅助文本
+  gray-3: #c9cdD4,      // 边框线
+  gray-4: #f2f3f5,      // 背景色
+  white: #ffffff        // 白色背景
+);
+
+// 颜色工具函数（使用 map 模块的方法）
+@function color($key) {
+  @if map.has-key($color, $key) { // 替代 map-has-key
+    @return map.get($color, $key); // 替代 map-get
+  } @else {
+    @warn "Color key #{$key} not found in $color map";
+    @return #000;
+  }
+}
+
+// 字体变量
+$font: (
+  size: (
+    xs: 12px,
+    sm: 14px,
+    md: 16px,
+    lg: 18px,
+    xl: 20px,
+    xxl: 24px
+  ),
+  weight: (
+    normal: 400,
+    medium: 500,
+    bold: 700
+  ),
+  line-height: (
+    tight: 1.2,
+    normal: 1.5,
+    loose: 1.8
+  )
+);
+
+// 字体工具函数（使用 map 模块的方法）
+@function font-size($key) {
+  $size-map: map.get($font, size); // 替代 map-get
+  @if map.has-key($size-map, $key) { // 替代 map-has-key
+    @return map.get($size-map, $key); // 替代 map-get
+  } @else {
+    @warn "Font size key #{$key} not found";
+    @return map.get($size-map, md);
+  }
+}
+
+@function font-weight($key) {
+  $weight-map: map.get($font, weight);
+  @if map.has-key($weight-map, $key) {
+    @return map.get($weight-map, $key);
+  } @else {
+    @warn "Font weight key #{$key} not found";
+    @return map.get($weight-map, normal);
+  }
+}
+
+@function line-height($key) {
+  $line-height-map: map.get($font, line-height);
+  @if map.has-key($line-height-map, $key) {
+    @return map.get($line-height-map, $key);
+  } @else {
+    @warn "Line height key #{$key} not found";
+    @return map.get($line-height-map, normal);
+  }
+}
+
+// 边框样式
+$border: (
+  radius: (
+    sm: 2px,
+    md: 4px,
+    lg: 8px,
+    round: 999px
+  ),
+  width: (
+    thin: 1px,
+    thick: 2px
+  ),
+  style: solid
+);
+
+// 边框工具函数（使用 map 模块的方法）
+@function border-radius($key) {
+  $radius-map: map.get($border, radius);
+  @if map.has-key($radius-map, $key) {
+    @return map.get($radius-map, $key);
+  } @else {
+    @warn "Border radius key #{$key} not found";
+    @return map.get($radius-map, md);
+  }
+}
+
+@function border-width($key) {
+  $width-map: map.get($border, width);
+  @if map.has-key($width-map, $key) {
+    @return map.get($width-map, $key);
+  } @else {
+    @warn "Border width key #{$key} not found";
+    @return map.get($width-map, thin);
+  }
+}
+
+// 全局基础样式
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: font-size(md);
+  color: color(black);
+  background-color: color(gray-4);
+  line-height: line-height(normal);
+}
+
+// 错误状态通用样式
+.error {
+  color: color(error);
+  border-color: color(error) !important;
+  
+  &::placeholder {
+    color: rgba(color(error), 0.6);
+  }
+}
+
+// 成功状态通用样式
+.success {
+  color: color(success);
+  border-color: color(success) !important;
+}
+
+
+// 基础错误色
+$error-color: #f53f3f;
+
+// 错误颜色体系扩展
+$error-colors: (
+  light: #ff7875,
+  dark: #d92121,
+  text: #b31212,
+  border: #ffcccc,
+  background: #fff2f0,
+  disabled: #ffb8b8,
+  transparent: rgba(245, 63, 63, 0.1)
+);
+
+// 修复 error-color() 函数（使用 map 模块方法）
+@function error-color($key) {
+  @if map.has-key($error-colors, $key) { // 替换 map-has-key 为 map.has-key
+    @return map.get($error-colors, $key); // 替换 map-get 为 map.get
+  } @else {
+    @warn "Error color key #{$key} not found in $error-colors map";
+    @return $error-color;
+  }
+}
+
+// 示例用法（保持不变）
+.error-input {
+  border-color: error-color(border) !important;
+  background-color: error-color(background);
+  color: $error-color;
+}
